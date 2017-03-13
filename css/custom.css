@@ -1,0 +1,25 @@
+.me img {
+	width: 15%; border-radius: 50%;
+	margin: 0 !important;
+}
+
+.me div {
+	line-height: 0;
+}
+
+.me span{
+	display: inline-block;
+	font-size: 1.5rem;
+	width: auto;
+}
+
+.me span:before {
+	display: inline-block;
+	content: " ";
+	position: relative;
+	top: 5px;
+	right: 10px;
+	background: url('http://www.macdrifter.com/theme/images/twitter-snow.svg');
+	background-size: cover;
+	width: 1.5rem; height: 1.5rem;
+}
