@@ -23,3 +23,23 @@
 	background-size: cover;
 	width: 1.5rem; height: 1.5rem;
 }
+
+.reveal section img {
+	border: none; background: none; box-shadow: none;
+}
+
+.reveal #second a {
+	color: #a589f1;
+}
+
+.reveal #second a:hover{
+	color: #c7b8ef;
+}
+
+.reveal #third a {
+	color: #667182;
+}
+
+.reveal #third a:hover{
+	color: #7093c9;
+}

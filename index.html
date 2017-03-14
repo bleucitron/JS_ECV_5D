@@ -27,7 +27,7 @@
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>
+                <section id="intro">
                     <h2>Introduction to Web development</h2>
                     <p class='fragment fade-down'>by me</p>
                     <div class='me fragment fade-down'>
@@ -38,7 +38,7 @@
                     </div>
                     
                 </section>
-                <section data-background-color="#3b5c91">
+                <section id="first" data-background-color="#3b5c91">
                     <section>
                         <h2>What's coding ?</h2>
                         <p class='fragment fade-down'>Reducing the mind's logic to its core</p>
@@ -196,7 +196,7 @@ for (i = 1; i <= colors.length; i++){ // OLD
                     </section>
 
                 </section>
-                <section data-background-color="#548944">
+                <section id="second" data-background-color="#548944">
                     <section>
                         <h2>HTML basics</h2>
                         Tag language
@@ -210,65 +210,232 @@ for (i = 1; i <= colors.length; i++){ // OLD
                     </section>
 
                     <section>
-                        <h2>HTML references</h2>
-                        <p><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">HTML elements</a></p>
-                        <p><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">HTML attributes</a></p>
+                        <h3>HTML references</h3>
+                        <p class='fragment fade-down'><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">HTML elements</a></p>
+                        <p class='fragment fade-down'><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">HTML attributes</a></p>
                     </section>
                     <section>
-                        <h2>HTML reminder</h2>
-                        <p>head => title, link, style, ...</p>
+                        <h3>HTML reminder</h3>
+                        <p><<span>head<span>> => title, link, style, ...</p>
                         <p>body => main, article, section, header, nav, footer, ul, li, a, div, ...</p>
                     </section>
                     <section>
-                        <h2><a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction#Interfaces_essentielles_du_DOM">
+                        <h3><a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction#Interfaces_essentielles_du_DOM" target="_blank">
                             Document Object Model (DOM)
-                        </a></h2>
+                        </a></h3>
                         <p>HTML structure as a tree</p>
                         <p>Interacting with HTML via DOM API</p>
+                        <a href="https://developer.mozilla.org/fr/docs/Web/API/Document"><p>Document API</p></a>
+                        <a href="https://developer.mozilla.org/fr/docs/Web/API/Element"><p>Element API</p></a>
                     </section>
                     <section>
-                        <h2>Play with HTML structure</h2>
-                        <p>Find a node</p>
-                        <p>Add/Remove a node</p>
-                        <p>Set attributes</p>
+                        <h3>Play with HTML</h3>
+                        <pre><code>
+var myElement = document.getElementById('#myID');
+var myElements = document.getElementsByTagName('div ul li');
+var myElements = document.getElementsByClassName('myCSSClass');
+
+var newChild = document.createElement('div'); // creates Div element
+parent.appendChild(newChild); // add newChild as a child
+
+newChild.remove(); // removes itself
+parent.remove(newChild); // parent removes child
+
+newChild.hasAttribute('name');
+newChild.getAttribute('name');
+newChild.setAttribute('name', 'value');
+                        </code></pre>
                     </section>
                     <section>
-                        <h2>Play with CSS classes</h2>
-                        <p>Get class list</p>
-                        <p>Add/Remove a class</p>
-                        <p>Toggle a class</p>
+                        <h3>Play with CSS</h3>
+                        <pre><code>
+element.style // access the CSS
+
+var classes = element.classList // returns a list of all element's classes
+classes.contains('blue'); // true or false
+classes.add('red');
+classes.remove('red');
+classes.toggle('red');
+                        </code></pre>
                     </section>
                     <section>
-                        <h2><a href="https://developer.mozilla.org/fr/docs/Web/Events">Events</a></h2>
+                        <h3><a href="https://developer.mozilla.org/fr/docs/Web/Events">Events</a></h3>
+                        <pre><code>
+element.addEventListener('click', function(){});
+element.onclick(function(){});
+                        </code></pre>
                         <p>click, dblclick</p>
                         <p>mouseenter, mouseover, mouseleave, mousemove</p>
                         <p>focus, blur</p>
                         <p>keyup, keydown</p>
                         <p>resize, scroll...</p>
                     </section>
+<!--                     <section>
+                        <h3>Wait for DOM</h3>
+                        <pre><code>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM fully loaded and parsed");
+  });
+
+for(var i=0; i<1000000000; i++){}
+</script>
+                        </code></pre>
+                    </section> -->
                 </section>
-                
+                <section id="third" data-background-color="#d6a25e">
+                    <section>
+                        <a href="https://learn.jquery.com/" target="_blank">
+                            <img src="https://scr.sad.supinfo.com/articles/resources/149178/2275/0.png" width="50%">
+                        </a>
+                        <p class='fragment fade-down'>JS utility library</p>
+                        <p class='fragment fade-down'>HTML, CSS manipulations</p>
+                        <p class='fragment fade-down'>Events</p>
+                        <p class='fragment fade-down'>Plugins</p>
+                    </section>
+                    <section>
+                        <h3>How to install</h3>
+                        <a href="http://code.jquery.com/jquery.min.js" target="_blank"><pre><code>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+                        </code></pre></a>
+                        <p>or</p>
+                        <a href="http://code.jquery.com/jquery.js" target="_blank"><pre><code>
+<script src="http://code.jquery.com/jquery.js"></script>
+                        </code></pre></a>
+                        <p>or, locally</p>
+                        <pre><code>
+<script src="my/path/to/jquery.js"></script>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Difference with classic JS</h3>
+                        <pre><code>
+// classic JS
+document.getElementById('first').innerHTML = 'HEY';
+document.getElementById('first').style.color = 'red';
+
+// jQuery
+$("#first").html('HEY');
+$("#first").css('color', 'red');
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Refining selectors</h3>
+                        <pre><code>
+$("div.myClass").has("p");     // div.myClass elements that contain p tags
+$("h1").not(".blue");          // h1 elements that don't have a class of bar
+$("ul li").filter(".current"); // unordered list items with class of current
+$("ul li").first();              // just the first
+$("ul li").eq(5);              // just the sixth 
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Getters / Setters</h3>
+                        <pre><code>// Getters
+$("cssSelector").html();
+$("cssSelector").css('color');
+$("cssSelector").attr('id');
+$("cssSelector").offset(); // position inside page
+$("cssSelector").position(); // position inside parent
+
+// Setters
+$("cssSelector").html('new HTML code');
+$("cssSelector").css('color', 'blue');
+$("cssSelector").attr('id', 'newID');
+
+$("cssSelector").css({
+    color: 'blue',
+    font-size: '14px'
+});</code></pre>
+                    </section>
+                    <section>
+                        <h3>Chaining</h3>
+                        <pre><code>
+$("section div").first().find("ul li").eq(3).html('Hello !');
+
+$("section div")
+    .first()
+    .find("ul li")
+    .eq(3)
+    .html('Hello !');
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>HTML manipulation</h3>
+                        <pre><code>
+var first = $("#first");
+var second = $("#second");
+
+second.insertAfter(first); // returns second element
+first.after(second); // returns first element
+
+second.insertBefore(first);
+first.before(second);
+
+second.append(first);
+first.appendTo(second);
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>HTML manipulation</h3>
+                        <pre><code>
+var original = $("#original");
+
+var clone = original.clone();
+clone.remove(); // returns removed clone
+
+var newElement = $("<div>This is a new element</div>");
+var newElement = $("<a></a>", {
+    id: "newLink",
+    href: "www.google.fr"
+});
+                        </code></pre>
+                    </section>
+                    <section>
+                        <a href="http://api.jquery.com/category/utilities/"><h3>Utilities</h3></a>
+                        <pre><code>
+$.each([a, b, c], do());
+$.inArray(4, [1, 2, 3, 4]); // true
+$.isArray(2); // false
+$.isNumeric(3) // true
+$.type(function(){}) // function
+                        </code></pre>
+                    </section>
+                    <section>
+                        <a href="https://learn.jquery.com/events/"><h3>Events</h3></a>
+                        <pre><code>
+$('#first').click(doSomething());
+$('#first').on('click', doSomething());
+                        </code></pre>
+                    </section>
+                    <section>
+                        <a href="https://learn.jquery.com/effects/"><h3>Effects</h3></a>
+                    </section>
+                    <section>
+                        <h3>Plugins</h3>
+                        <a href="http://plugins.jquery.com"><p>Plugin registry</p></a>
+                        <a href="http://jqueryui.com"><p>jQuery UI</p></a>
+                    </section>
+                </section>
                 
             </div>
         </div>
-
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-
-        <script>
-            // More info https://github.com/hakimel/reveal.js#configuration
-            Reveal.initialize({
-                history: true,
-                transition: 'concave',
-
-                // More info https://github.com/hakimel/reveal.js#dependencies
-                dependencies: [
-                    { src: 'plugin/markdown/marked.js' },
-                    { src: 'plugin/markdown/markdown.js' },
-                    { src: 'plugin/notes/notes.js', async: true },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-                ]
-            });
-        </script>
     </body>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+            transition: 'concave',
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
 </html>
