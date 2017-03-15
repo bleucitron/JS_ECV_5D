@@ -20,6 +20,10 @@ section > div > div {
 	padding: 1rem;
 }
 
+#second div div, #third div div, #fourth div:nth-child(2) {
+	cursor: pointer;
+}
+
 #first > div:last-child {
 	margin: 0; padding: 0;
 	height: 3rem;
@@ -41,10 +45,22 @@ section > div > div {
 	height: 3rem;
 }
 
-#square {
+#info-mouse {
 	position: relative;
 	padding: 0; margin: 2rem auto;
-	width: 300px; height: 300px; border: 1px solid black;
+	width: 400px; height: 70px; border: 1px solid black;
+}
+
+#fifth {
+	position: relative;
+}
+
+#square {
+	font-size: 14px;
+	position: relative;
+	background-color: red;
+	padding: 0; margin: 2rem auto;
+	width: 100px; height: 100px; border: 1px solid black;
 }
 
 #no {
