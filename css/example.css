@@ -20,7 +20,7 @@ section > div > div {
 	padding: 1rem;
 }
 
-#second div div, #third div div, #fourth div:nth-child(2), #fifth div:nth-child(2) {
+#first div div, #second div div, #third div div, #fourth div:nth-child(2), #fifth div:nth-child(2) {
 	cursor: pointer;
 }
 
