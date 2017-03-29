@@ -43,3 +43,7 @@
 .reveal #third a:hover{
 	color: #7093c9;
 }
+
+.reveal #third a {
+	color: #a589f1;
+}
